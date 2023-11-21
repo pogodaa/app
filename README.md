@@ -152,8 +152,46 @@ print ('error')
 
 ## Из 2
 
+if цифраиз == 2 and цифрав == 8:
+
+ print (int(res2,8))
+
+
+elif цифраиз == 2 and цифрав == 10:
+
+ print (int(res2,10))
+
+
+elif цифраиз == 2 and цифрав == 16:
+
+ print (int(res2,16))
+
+
+else:
+
+ print('error')
+
 
 ## Из 8
+
+if цифраиз == 8 and цифрав == 2:
+
+ print (int(res8,2))
+
+
+elif цифраиз == 8 and цифрав == 10:
+
+ print (int(res8,10))
+
+
+elif цифраиз == 8 and цифрав == 16:
+
+ print (int(res8,16))
+
+
+else:
+
+ print('error')
 
 
 ## Из 10
@@ -193,3 +231,23 @@ else:
 
 
 # Из 16
+
+
+if цифраиз == 16 and цифрав == 2:
+
+ print (int(res16,2))
+
+
+elif цифраиз == 16 and цифрав == 8:
+
+ print (int(res16,8))
+
+
+elif цифраиз == 16 and цифрав == 10:
+
+ print (int(res16,10))
+
+
+else:
+
+ print('error')
