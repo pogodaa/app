@@ -14,7 +14,7 @@ if цифраиз == 2:
  print (число во 2-ой системе исчисления)
 
  dop2 = '0b'
- 
+
  dop2 = type(int)
 
  res2 = dop2 + number
@@ -26,6 +26,9 @@ if цифраиз == 2:
 else:
 
 print ('error')
+
+
+
 
 
 if цифраиз == 8:
@@ -49,6 +52,9 @@ else:
 print ('error')
 
 
+
+
+
 if цифраиз == 10:
 
  if 9,8,7,6,5,4,3,2,1,0 in number
@@ -62,6 +68,9 @@ if цифраиз == 10:
 else:
 
 print ('error')
+
+
+
 
 
 if цифраиз == 16:
