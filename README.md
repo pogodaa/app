@@ -28,9 +28,6 @@ else:
 print ('error')
 
 
-
-
-
 if цифраиз == 8:
 
  if 7,6,5,4,3,2,1,0 in number
@@ -52,9 +49,6 @@ else:
 print ('error')
 
 
-
-
-
 if цифраиз == 10:
 
  if 9,8,7,6,5,4,3,2,1,0 in number
@@ -68,9 +62,6 @@ if цифраиз == 10:
 else:
 
 print ('error')
-
-
-
 
 
 if цифраиз == 16:
