@@ -14,7 +14,9 @@ if цифраиз == 2:
  print (число во 2-ой системе исчисления)
 
  dop2 = '0b'
+ 
  dop2 = type(int)
+
  res2 = dop2 + number
 
  else:
@@ -33,7 +35,9 @@ if цифраиз == 8:
  print (число в 8-ой системе исчисления)
 
  dop8 = '0o'
+
  dop8 = type(int)
+
  res8 = dop8 + number
 
  else:
@@ -65,8 +69,11 @@ if цифраиз == 16:
  if 'A','B','C','D','E','F',9,8,7,6,5,4,3,2,1,0 in number
 
  print (число в 16-ой системе исчисления)
+
  dop16 = '0h'
+
  dop16 = type(int)
+
  res16 = dop16 + number
 
  else:
