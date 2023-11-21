@@ -21,5 +21,15 @@ print "ИЗ ",цифраиз, " ", системы исчисления, "в ",ц
 # Из 8
 
 # Из 10
-
+if цифраиз == 10 and цифрав == 2:
+ q10to2number = bin(number)
+ print (q10to2number)
+elif цифраиз == 10 and цифрав == 8:
+ q10to8number = oct(number)
+ print(q10to8number)
+elif цифраиз == 10 and цифрав == 16:
+ q10to16number = hex(number)
+ print(q10to16number)
+else:
+ print('error')
 # Из 16
