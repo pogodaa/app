@@ -92,7 +92,7 @@ print ('error')
 
 if цифрав == 2:
 
- if 1,0 in number
+ if '1' or '0' in number
 
  print (число во 2-ой системе исчисления)
 
@@ -107,7 +107,7 @@ print ('error')
 
 if цифрав == 8:
 
- if 7,6,5,4,3,2,1,0 in number
+ if '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
 
  print (число в 8-ой системе исчисления)
 
@@ -122,7 +122,7 @@ print ('error')
 
 if цифрав == 10:
 
- if 9,8,7,6,5,4,3,2,1,0 in number
+ if '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
 
  print (число в 10-ой системе исчисления)
 
@@ -137,7 +137,7 @@ print ('error')
 
 if цифрав == 16:
 
- if 'A','B','C','D','E','F',9,8,7,6,5,4,3,2,1,0 in number
+ if 'A' or 'B' or 'C' or 'D' or 'E' or 'F' or '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
 
  print (число в 16-ой системе исчисления)
 
