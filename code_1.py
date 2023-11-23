@@ -17,7 +17,7 @@ else:
 
 # Если 2
 if user_system_iz == 2:
-    if symbol_for_check[0,1] in user_number:
+    if symbol_for_check[0:2] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
         dop_pomosh_dlya_perevoda_chisla_iz = int('0b')
         result_user_number_after_check = user_number+dop_pomosh_dlya_perevoda_chisla_iz
@@ -68,7 +68,7 @@ else:
 
 # Если 2
 if user_system_v == 2:
-    if symbol_for_check[0,1] in user_number:
+    if symbol_for_check[0,2] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
     else:
         print('\n','Проверка: введённое вами число НЕ соответствует введённой вами системе исчисления','\n')
