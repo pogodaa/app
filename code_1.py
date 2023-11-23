@@ -1,5 +1,5 @@
-from numpy import array
-symbol_for_check = array([0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'])
+symbol_for_check_int = [0,1,2,3,4,5,6,7,8,9]
+symbol_for_check_str = ['A','B','C','D','E','F']
 
 print('\n','\t','\t','Приложение, переводящее из ввошдимой пользователем системы исчисления в другую систему исчисления указанную пользователем','\n')
 
@@ -18,7 +18,7 @@ else:
 
 # Если 2
 if user_system_iz == 2:
-    if symbol_for_check[0:2] in user_number:
+    if symbol_for_check_int[0:2] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
         dop_pomosh_dlya_perevoda_chisla_iz = int('0b')
         result_user_number_after_check = user_number+dop_pomosh_dlya_perevoda_chisla_iz
@@ -29,7 +29,7 @@ else:
 
 # Если 8
 if user_system_iz == 8:
-    if symbol_for_check[0:8] in user_number:
+    if symbol_for_check_int[0:8] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n',)
         dop_pomosh_dlya_perevoda_chisla2 = int('0o')
         result_user_number_after_check = user_number+dop_pomosh_dlya_perevoda_chisla2
@@ -40,7 +40,7 @@ else:
 
 # Если 10
 if user_system_iz == 10:
-    if symbol_for_check[0:10] in user_number:
+    if symbol_for_check_int[0:10] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
     else:
         print('\n','Проверка: введённое вами число НЕ соответствует введённой вами системе исчисления','\n')
@@ -49,7 +49,7 @@ else:
 
 # Если 16
 if user_system_iz == 16:
-    if symbol_for_check in user_number:
+    if symbol_for_check_int and symbol_for_check_str in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
         dop_pomosh_dlya_perevoda_chisla2 = int('0h')
         result_user_number_after_check = user_number+dop_pomosh_dlya_perevoda_chisla2
@@ -69,7 +69,7 @@ else:
 
 # Если 2
 if user_system_v == 2:
-    if symbol_for_check[0,2] in user_number:
+    if symbol_for_check_int[0,2] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
     else:
         print('\n','Проверка: введённое вами число НЕ соответствует введённой вами системе исчисления','\n')
@@ -78,7 +78,7 @@ else:
 
 # Если 8
 if user_system_v == 8:
-    if symbol_for_check[0,8] in user_number:
+    if symbol_for_check_int[0,8] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
     else:
         print('\n','Проверка: введённое вами число НЕ соответствует введённой вами системе исчисления','\n')
@@ -87,7 +87,7 @@ else:
 
 # Если 10
 if user_system_v == 10:
-    if symbol_for_check[0,10] in user_number:
+    if symbol_for_check_int[0,10] in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
     else:
         print('\n','Проверка: введённое вами число НЕ соответствует введённой вами системе исчисления','\n')
@@ -96,7 +96,7 @@ else:
 
 # Если 16
 if user_system_v == 16:
-    if symbol_for_check in user_number:
+    if symbol_for_check_int in user_number:
         print('\n','Проверка: введённое вами число соответствует введённой вами системе исчисления','\n')
     else:
         print('\n','Проверка: введённое вами число НЕ соответствует введённой вами системе исчисления','\n')
