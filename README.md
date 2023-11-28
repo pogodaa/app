@@ -1,253 +1,57 @@
-# Приложение, переводящее из вводимой пользователем системы исчисления в другую систему исчисления указанную пользователем
+# Приложение, переводящее из вводимой пользователем системы исчисления в другую систему исчисления, указанную пользователем
 
-## юзер вводит само число 'number'
+# Функция для перевода числа из десятичной системы в другую систему
 
-## юзер вводит желаюмую систему исчисления через цифры (2 - двоичная, 8 - восьмеричная и тд) ИЗ
+def decimal_to_base(n, base):
 
-# Микро проверка числа (системы исчисления (ИЗ))
+    digits = "0123456789ABCDEF" # символы для системы счисления до 16
 
+    result = ""
 
-if цифраиз == 2:
+    while n > 0:
 
- if '1' or '0' in number
+        digit = n % base
 
- print (число во 2-ой системе исчисления)
+        result = digits[digit] + result
 
- dop2 = '0b'
+        n = n // base
 
- dop2 = type(int)
+    return result
 
- res2 = dop2 + number
+# Функция для перевода числа из заданной системы исчисления в десятичную систему
 
- else:
+def base_to_decimal(number, base):
 
- print (число не во 2-ой системе исчисления)
+    digits = "0123456789ABCDEF" # символы для системы счисления до 16
 
-else:
+    number = str(number).upper()
 
-print ('error')
+    result = 0
 
+    for i in range(len(number)):
 
-if цифраиз == 8:
+        digit = digits.index(number[i])
 
- if '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
+        result = result * base + digit
+        
+    return result
 
- print (число в 8-ой системе исчисления)
+## Ввод данных от пользователя
 
- dop8 = '0o'
+# Ввод числа и системы исчисления
 
- dop8 = type(int)
+number = input("Введите число: ")
 
- res8 = dop8 + number
+base_from = int(input("Из какой системы исчисления перевести (2-16): "))
 
- else:
+base_to = int(input("В какую систему исчисления перевести (2-16): "))
 
- print (число не в 8-ой системе исчисления)
+# Перевод числа из заданной системы исчисления в десятичную
 
-else:
+decimal_number = base_to_decimal(number, base_from)
 
-print ('error')
+# Перевод числа из десятичной системы в указанную систему исчисления
 
+result = decimal_to_base(decimal_number, base_to)
 
-if цифраиз == 10:
-
- if '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
-
- print (число в 10-ой системе исчисления)
-
- else:
-
- print (число не в 10-ой системе исчисления)
-
-else:
-
-print ('error')
-
-
-if цифраиз == 16:
-
- if 'A' or 'B' or 'C' or 'D' or 'E' or 'F' or '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
-
- print (число в 16-ой системе исчисления)
-
- dop16 = '0h'
-
- dop16 = type(int)
-
- res16 = dop16 + number
-
- else:
-
- print (число не в 16-ой системе исчисления)
-
-else:
-
-print ('error')
-
-
-## юзер вводит желаюмую систему исчисления через цифры (2 - двоичная, 8 - восьмеричная и тд) В
-
-# Микро проверка числа (системы исчисления (В))
-
-
-if цифрав == 2:
-
- if '1' or '0' in number
-
- print (число во 2-ой системе исчисления)
-
- else:
-
- print (число не во 2-ой системе исчисления)
-
-else:
-
-print ('error')
-
-
-if цифрав == 8:
-
- if '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
-
- print (число в 8-ой системе исчисления)
-
- else:
-
- print (число не в 8-ой системе исчисления)
-
-else:
-
-print ('error')
-
-
-if цифрав == 10:
-
- if '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
-
- print (число в 10-ой системе исчисления)
-
- else:
-
- print (число не в 10-ой системе исчисления)
-
-else:
-
-print ('error')
-
-
-if цифрав == 16:
-
- if 'A' or 'B' or 'C' or 'D' or 'E' or 'F' or '9' or '8' or '7' or '6' or '5' or '4' or '3' or '2' or '1' or '0' in number
-
- print (число в 16-ой системе исчисления)
-
- else:
-
- print (число не в 16-ой системе исчисления)
-
-else:
-
-print ('error')
-
-
-## Из 2
-
-if цифраиз == 2 and цифрав == 8:
-
- print (int(res2,8))
-
-
-elif цифраиз == 2 and цифрав == 10:
-
- print (int(res2,10))
-
-
-elif цифраиз == 2 and цифрав == 16:
-
- print (int(res2,16))
-
-
-else:
-
- print('error')
-
-
-## Из 8
-
-if цифраиз == 8 and цифрав == 2:
-
- print (int(res8,2))
-
-
-elif цифраиз == 8 and цифрав == 10:
-
- print (int(res8,10))
-
-
-elif цифраиз == 8 and цифрав == 16:
-
- print (int(res8,16))
-
-
-else:
-
- print('error')
-
-
-## Из 10
-
-
-if цифраиз == 10 and цифрав == 2:
-
-
- q10to2number = bin(number)
-
-
- print (q10to2number)
-
-
-elif цифраиз == 10 and цифрав == 8:
-
-
- q10to8number = oct(number)
-
-
- print(q10to8number)
-
-
-elif цифраиз == 10 and цифрав == 16:
-
-
- q10to16number = hex(number)
-
-
- print(q10to16number)
-
-
-else:
-
-
- print('error')
-
-
-# Из 16
-
-
-if цифраиз == 16 and цифрав == 2:
-
- print (int(res16,2))
-
-
-elif цифраиз == 16 and цифрав == 8:
-
- print (int(res16,8))
-
-
-elif цифраиз == 16 and цифрав == 10:
-
- print (int(res16,10))
-
-
-else:
-
- print('error')
+print("Результат перевода:", result)
