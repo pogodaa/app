@@ -36,6 +36,39 @@ def base_to_decimal(number, base):
         
     return result
 
+# Функция для проверки 
+
+def check_number_system(input_string):
+
+    binary_digits = {'0', '1'}
+
+    octal_digits = {'0', '1', '2', '3', '4', '5', '6', '7'}
+
+    decimal_digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+
+    hexadecimal_digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}
+
+    if all(digit in binary_digits for digit in input_string):
+
+        return "Двоичная система исчисления."
+
+    elif all(digit in octal_digits for digit in input_string):
+
+        return "Восьмеричная система исчисления."
+
+    elif all(digit in decimal_digits for digit in input_string):
+
+        return "Десятичная система исчисления."
+
+    elif all(digit in hexadecimal_digits for digit in input_string):
+
+        return "Шестнадцатеричная система исчисления."
+
+    else:
+    
+        return "Введенная система исчисления не поддерживается."
+
+
 ## Ввод данных от пользователя
 
 # Ввод числа и системы исчисления
