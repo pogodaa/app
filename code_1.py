@@ -1,59 +1,69 @@
-# Программа для перевода числа из одной системы исчисления в другую
-
+import tkinter as tk
 # Функция для перевода числа из десятичной системы в другую систему
-def decimal_to_base(num, base): # num для вводимого числа # base для вводной системе исчисления
-    digits = "0123456789ABCDEF" # символы для системы счисления до 16
-    result = "" # объявление пустой переменной
-    while num > 0: # Пока вводное число > 0 цикл
-        digit = num % base # Объявление элемента типо i который получается при делении без остатка от вводного числа на систему исчисления
-        result = digits[digit] + result # присваивание result, digits в котором все допустимые знаки, под индексом digit + пока пустая переменная, после второго цикла будет число которе будет складываться
-        num = num // base # обновление num, '//' деление до  пример 12//5 = 2
+def decimal_to_base(num, base):
+    digits = "0123456789ABCDEF"
+    result = ""
+    while num > 0: 
+        digit = num % base 
+        result = digits[digit] + result 
+        num = num // base 
     return result
 
 # Функция для перевода числа из заданной системы исчисления в десятичную систему
-def base_to_decimal(number, base): # вводное число, система из
-    digits = "0123456789ABCDEF" # символы для системы счисления до 16
-    number = str(number).upper() # вводное число присваивается к str т.к возможны ABC и тд, капсом
-    result = 0 # 0 потому что при расчётах нужно
-    for i in range(len(number)): # для i в range(возвращает последовательность заданого числа между заданным дипозоном) от len(возвращает длну строки) вводного числа
-        digit = digits.index(number[i]) # Метод index () в Python помогает найти значение индекса элемента в последовательности вводного числа
-        result = result * base + digit # обновление result с помощью старого result который умножается на вводное из которое складывается с
+def base_to_decimal(number, base):
+    digits = "0123456789ABCDEF"
+    number = str(number).upper()
+    result = 0
+    for i in range(len(number)):
+        if number[i] not in digits[:base]: 
+            return None 
+        digit = digits.index(number[i])
+        result = result * base + digit
     return result
 
-def check_number_system(input_string):
-    binary_digits = {'0', '1'}
-    octal_digits = {'0', '1', '2', '3', '4', '5', '6', '7'}
-    decimal_digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
-    hexadecimal_digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}
 
-    if all(digit in binary_digits for digit in input_string):
-        return "Двоичная система исчисления."
-    elif all(digit in octal_digits for digit in input_string):
-        return "Восьмеричная система исчисления."
-    elif all(digit in decimal_digits for digit in input_string):
-        return "Десятичная система исчисления."
-    elif all(digit in hexadecimal_digits for digit in input_string):
-        return "Шестнадцатеричная система исчисления."
-    else:
-        return "Введенная система исчисления не поддерживается."
+def convert_number():
+    number = entry_number.get()
+    base_from = int(entry_base_from.get())
+    base_to = int(entry_base_to.get())
 
-# Ввод числа
-print('\n')
-number = input("Введите число: ")
+    if base_from == 2 and not all(digit in "01" for digit in number):
+        result_label.config(text="Ошибка: Введено некорректное двоичное число")
+        return
 
-# Ввод системы исчисления ИЗ
-base_from_before_check = (input("Из какой системы исчисления перевести (2 - двоичная, 8 - восьмиричная, 10 - десятичная, 16 - шестнадцатеричная): "))
-base_from = check_number_system(base_from_before_check)
+    decimal_number = base_to_decimal(number, base_from)
+    if decimal_number is None:
+        result_label.config(text="Ошибка: Введено некорректное число для указанной системы исчисления")
+        return
 
-# Ввод системы исчисления В
-base_to_before_check = (input("В какую систему исчисления перевести (2 - двоичная, 8 - восьмиричная, 10 - десятичная, 16 - шестнадцатеричная): "))
-base_to = check_number_system(base_to_before_check)
+    result = decimal_to_base(decimal_number, base_to)
+    result_label.config(text="Результат перевода: " + result)
 
-# Перевод числа из заданной системы исчисления в десятичную
-decimal_number = base_to_decimal(number, base_from)
+window = tk.Tk()
+window.title("Перевод числа из одной системы исчисления в другую")
 
-# Перевод числа из десятичной системы в указанную систему исчисления
-result = decimal_to_base(decimal_number, base_to)
+number_label = tk.Label(window, text="Введите число:")
+number_label.pack()
 
-# Вывод результата
-print("Результат перевода:", result,'\n')
+entry_number = tk.Entry(window)
+entry_number.pack()
+
+base_from_label = tk.Label(window, text="Из какой системы исчисления перевести:")
+base_from_label.pack()
+
+entry_base_from = tk.Entry(window)
+entry_base_from.pack()
+
+base_to_label = tk.Label(window, text="В какую систему исчисления перевести:")
+base_to_label.pack()
+
+entry_base_to = tk.Entry(window)
+entry_base_to.pack()
+
+convert_button = tk.Button(window, text="Перевести", command=convert_number)
+convert_button.pack()
+
+result_label = tk.Label(window, text="")
+result_label.pack()
+
+window.mainloop()
