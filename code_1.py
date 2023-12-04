@@ -1,31 +1,34 @@
 import tkinter as tk
-# Функция для перевода числа из десятичной системы в другую систему
+
 def decimal_to_base(num, base):
     digits = "0123456789ABCDEF"
     result = ""
-    while num > 0: 
-        digit = num % base 
-        result = digits[digit] + result 
-        num = num // base 
+    while num > 0:
+        digit = num % base
+        result = digits[digit] + result
+        num = num // base
     return result
 
-# Функция для перевода числа из заданной системы исчисления в десятичную систему
 def base_to_decimal(number, base):
     digits = "0123456789ABCDEF"
     number = str(number).upper()
     result = 0
     for i in range(len(number)):
-        if number[i] not in digits[:base]: 
-            return None 
+        if number[i] not in digits[:base]:
+            return None
         digit = digits.index(number[i])
         result = result * base + digit
     return result
-
 
 def convert_number():
     number = entry_number.get()
     base_from = int(entry_base_from.get())
     base_to = int(entry_base_to.get())
+
+    valid_bases = [2, 8, 10, 16] 
+    if base_from not in valid_bases or base_to not in valid_bases:
+        result_label.config(text="Ошибка: Недопустимая система исчисления")
+        return
 
     if base_from == 2 and not all(digit in "01" for digit in number):
         result_label.config(text="Ошибка: Введено некорректное двоичное число")
