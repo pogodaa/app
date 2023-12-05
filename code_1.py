@@ -38,6 +38,21 @@ def convert_number():
     if base_from == 2 and not all(digit in "01" for digit in number):
         result_label.config(text="Ошибка: Введено некорректное двоичное число")
         return
+    
+    if base_from == 8 and not all(digit in "01234567"
+     for digit in number): 
+     result_label.config(text="Ошибка: Введено некорректное восьмиричное число")
+     return
+    
+    if base_from == 10 and not all(digit in "0123456789"
+     for digit in number): 
+     result_label.config(text="Ошибка: Введено некорректное десятичное число")
+     return
+    
+    if base_from == 16 and not all(digit in "0123456789ABCDEF"
+     for digit in number): 
+     result_label.config(text="Ошибка: Введено некорректное шестнадцатеричное число")
+     return
 
     decimal_number = base_to_decimal(number, base_from)
     if decimal_number is None:

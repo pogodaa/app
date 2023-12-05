@@ -43,18 +43,40 @@ def convert_number():
         return
     
 
+    # Проверка 2-ичного ИЗ, соответствует ли числу
     if base_from == 2 and not all(digit in "01" # base_from == 2 проверяет, является ли введенная система счисления двоичной (со значением равным 2).
         for digit in number): # all(digit in "01" for digit in number) проверяет, что каждая цифра в числе number является либо "0", либо "1".
         result_label.config(text="Ошибка: Введено некорректное двоичное число")
         # config() используется для изменения свойства text, которое отображает текст внутри виджета.
         return
     
+    # Проверка 8-ичного ИЗ, соответствует ли числу
+    if base_from == 8 and not all(digit in "01234567"
+     for digit in number): 
+     result_label.config(text="Ошибка: Введено некорректное восьмиричное число")
+     return
+    
+    # Проверка 10-ичного ИЗ, соответсвует ли числу
+    if base_from == 10 and not all(digit in "0123456789"
+     for digit in number): 
+     result_label.config(text="Ошибка: Введено некорректное десятичное число")
+     return
+    
+    # Проверка 16-ичного ИЗ, соответсвует ли числу
+    if base_from == 16 and not all(digit in "0123456789ABCDEF"
+     for digit in number): 
+     result_label.config(text="Ошибка: Введено некорректное шестнадцатеричное число")
+     return
+    
+    # нов пер которорая принимает результат функции ИЗ в десятичную
     decimal_number = base_to_decimal(number, base_from)
     
+    # проверка на вшивость
     if decimal_number is None:
         result_label.config(text="Ошибка: Введено некорректное число для указанной системы исчисления")
         return
-
+    
+    # нов пер которая принимает результат функц из 10 В (нов пер )
     result = decimal_to_base(decimal_number, base_to)
     result_label.config(text="Результат перевода: " + result)
 
@@ -90,3 +112,5 @@ window.mainloop() # Запуск
 ## Баги:
 ##                1. Можно вводить "ИЗ","В" любые числа, и получать результат (Исправлено)
 ##                2. Можно вводить огромное число (Исправлено)
+##                3. Сделать красивый интерфейс
+##                4. Добавить проверку для сис ИЗ для 8 10 16 (Исправлено)
