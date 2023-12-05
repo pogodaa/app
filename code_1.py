@@ -25,6 +25,11 @@ def convert_number():
     base_from = int(entry_base_from.get())
     base_to = int(entry_base_to.get())
 
+    max_lenght = 15
+    if len(number) > max_lenght:
+        result_label.config(text="Ошибка: Ваше число превышает: 15 символов.")
+        return
+
     valid_bases = [2, 8, 10, 16] 
     if base_from not in valid_bases or base_to not in valid_bases:
         result_label.config(text="Ошибка: Недопустимая система исчисления")
