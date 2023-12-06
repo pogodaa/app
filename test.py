@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import PhotoImage
 # Функция для перевода числа из десятичной системы в другую систему
 def decimal_to_base(num, base):
     digits = "0123456789ABCDEF"
@@ -30,18 +31,18 @@ def convert_number():
     base_to = int(entry_base_to.get())
     # Когда вызывается метод .get() на объекте виджета, он возвращает текущее значение, введенное пользователем в этот виджет. 
     # entry_number.get() вернет значение, введенное пользователем в entry_number, аналогично для entry_base_from.get() и entry_base_to.get().
-
-    max_lenght = 15 # Проверка 
+    
+    # Проверка на кол-во символов вводного числа
+    max_lenght = 15 
     if len(number) > max_lenght:
         result_label.config(text="Ошибка: Ваше число превышает: 15 символов.")
         return
 
-    valid_bases = [2, 8, 10, 16]  # Список допустимых систем исчисления
+    valid_bases = [2, 8, 10, 16] # Список допустимых систем исчисления
     if base_from not in valid_bases or base_to not in valid_bases: #  Если введенная система исчисления не находится в этом списке, код устанавливает текст виджета result_label 
         # на "Ошибка: Недопустимая система исчисления" и прекращает выполнение функции. ()
         result_label.config(text="Ошибка: Недопустимая система исчисления")
         return
-    
 
     # Проверка 2-ичного ИЗ, соответствует ли числу
     if base_from == 2 and not all(digit in "01" # base_from == 2 проверяет, является ли введенная система счисления двоичной (со значением равным 2).
@@ -81,30 +82,42 @@ def convert_number():
     result_label.config(text="Результат перевода: " + result)
 
 window = tk.Tk() # Создает главное окно приложения
-window.title("Перевод числа из одной системы исчисления в другую") #  Устанавливает заголовок для главного окна.
 
-number_label = tk.Label(window, text="Введите число:") # Создает виджет Label с текстом "Введите число:" и добавляет его в главное окно.
+window.iconbitmap("C:\\(!) python works\\app\\img\\log1.ico") # Лого
+
+window.title("Перевод числа из одной системы исчисления в другую") #  Устанавливает заголовок для главного окна.
+window.configure(bg='cornsilk3')
+
+number_label = tk.Label(window, text="Введите число:",font='Times',fg='#000000') # Создает виджет Label с текстом "Введите число:" и добавляет его в главное окно.
+number_label.configure(bg='cornsilk3')
 number_label.pack() #  Размещает виджет Label в окне
 
 entry_number = tk.Entry(window) # Создает виджет Entry для ввода числа и добавляет его в главное окно.
+entry_number.configure(bg='cornsilk3')
 entry_number.pack() # Размещает виджет Entry в окне. и тд
 
-base_from_label = tk.Label(window, text="Из какой системы исчисления перевести:") 
+base_from_label = tk.Label(window, text="Из какой системы исчисления перевести:",font='Times',fg='#000000') 
+base_from_label.configure(bg='cornsilk3')
 base_from_label.pack()
 
 entry_base_from = tk.Entry(window)
+entry_base_from.configure(bg='cornsilk3')
 entry_base_from.pack()
 
-base_to_label = tk.Label(window, text="В какую систему исчисления перевести:")
+base_to_label = tk.Label(window, text="В какую систему исчисления перевести:",font='Times',fg='#000000')
+base_to_label.configure(bg='cornsilk3')
 base_to_label.pack()
 
 entry_base_to = tk.Entry(window)
+entry_base_to.configure(bg='cornsilk3')
 entry_base_to.pack()
 
-convert_button = tk.Button(window, text="Перевести", command=convert_number) # Создает кнопку с надписью "Перевести" и связывает ее с функцией convert_number().
+convert_button = tk.Button(window, text="Перевести",font='Times',fg='#000000',command=convert_number) # Создает кнопку с надписью "Перевести" и связывает ее с функцией convert_number().
+convert_button.configure(bg='cornsilk3')
 convert_button.pack() # Размещает виджет button в окне
 
-result_label = tk.Label(window, text="") # Создает виджет Label для отображения результата перевода и добавляет его в главное окно.
+result_label = tk.Label(window, text="",font='Times',fg='#000000') # Создает виджет Label для отображения результата перевода и добавляет его в главное окно.
+result_label.configure(bg='cornsilk3')
 result_label.pack() # Размещает виджет Label в окне.
 
 window.mainloop() # Запуск
